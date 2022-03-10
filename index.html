@@ -48,38 +48,25 @@ body {
 </style>
 </head>
 <body>
-
-<video autoplay style="pointer-events: none;" id="myVideo">
-  <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
-
+  <video autoplay style="pointer-events: none;" id="myVideo">
+    <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 <div class="content">
   <img src="https://storageapi.fleek.co/jethrodw-team-bucket/logo.svg" alt="drivrs.eth"/>
-
 </div>
 
 <script>
 var video = document.getElementById("myVideo");
 
-function toggleControls(){
-  if (video.hasAttribute("controls")) {
-     video.removeAttribute("controls")   
-  } else {
-     video.setAttribute("controls","controls")   
-  }
-}
 window.addEventListener('load', function(){
     var newVideo = document.getElementById('myVideo');
     newVideo.addEventListener('ended', function() {
         this.currentTime = 0;
         this.play();
     }, false);
-
     newVideo.play();
-
 });
 </script>
-
 </body>
 </html>
