@@ -17,7 +17,8 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  max-width: 100%; 
+  max-width: 100%;
+  background: black;
   min-height: 100%;
 }
 
@@ -48,25 +49,29 @@ body {
 </style>
 </head>
 <body>
-  <video autoplay style="pointer-events: none;" id="myVideo">
+  <video autoplay loop muted id="myVideo">
     <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
+  <audio autoplay loop>
+    <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs.mp3" type="audio/mpeg">
+    Your browser does not support HTML5 audio.
+  </audio>
 <div class="content">
   <img src="https://storageapi.fleek.co/jethrodw-team-bucket/logo.svg" alt="drivrs.eth"/>
 </div>
 
 <script>
-var video = document.getElementById("myVideo");
+// var video = document.getElementById("myVideo");
 
-window.addEventListener('load', function(){
-    var newVideo = document.getElementById('myVideo');
-    newVideo.addEventListener('ended', function() {
-        this.currentTime = 0;
-        this.play();
-    }, false);
-    newVideo.play();
-});
+// window.addEventListener('load', function(){
+//     var newVideo = document.getElementById('myVideo');
+//     newVideo.addEventListener('ended', function() {
+//         this.currentTime = 0;
+//         this.play();
+//     }, false);
+//     newVideo.play();
+// });
 </script>
 </body>
 </html>
