@@ -6,7 +6,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   font-family: Arial;
@@ -15,7 +14,7 @@ body {
 video{
   max-width: 100%;
 }
-#bgvideo {
+#bgvid {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -23,12 +22,9 @@ video{
   background: black;
   min-height: 100%;
 }
-
 .content {
   position: fixed;
   top: 0;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* color: #f1f1f1; */
   width: 15%;
   padding: 20px;
 }
@@ -47,35 +43,15 @@ video{
     width: 50%;
   }
 }
-
-#myBtn {
-	display: none;
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
-#myBtn:hover {
-  background: #ddd;
-  color: black;
-}
 </style>
 </head>
 <body>
   <div id="video">
     <video 
-    id="bgvid" 
-    style="min-width:100%; min-height:100%;" 
-    playsinline 
-    autoplay 
-    loop 
-    muted
+    id="bgvid" autoplay loop muted 
       data-desktop-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-desktop.mp4" 
-      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4">
+      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4"
+      data-mobile-vid-webm="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.webm">
     </video>
   </div>
 
@@ -89,8 +65,8 @@ var video =  document.querySelectorAll('video')
 //add source to video tag
 function addSourceToVideo(element, src) {
     var source = document.createElement('source');
-    source.src = src;
     source.type = 'video/mp4';
+    source.src = src;
 	console.log(src);
     element.appendChild(source);
 	
@@ -103,6 +79,7 @@ function whichSizeVideo(element, src) {
 		addSourceToVideo( element, src.dataset.desktopVid);
 	} else {
 		addSourceToVideo(element, src.dataset.mobileVid);
+    addSourceToVideo(element, src.dataset.mobileVidWebm);
 	}
 }
 
