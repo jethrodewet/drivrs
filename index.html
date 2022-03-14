@@ -50,8 +50,7 @@ video{
     <video 
     id="bgvid" autoplay loop muted 
       data-desktop-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-desktop.mp4" 
-      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4"
-      data-mobile-vid-webm="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.webm">
+      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.webm">
     </video>
   </div>
 
@@ -79,7 +78,6 @@ function whichSizeVideo(element, src) {
 		addSourceToVideo( element, src.dataset.desktopVid);
 	} else {
 		addSourceToVideo(element, src.dataset.mobileVid);
-    addSourceToVideo(element, src.dataset.mobileVidWebm);
 	}
 }
 
