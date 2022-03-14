@@ -67,55 +67,50 @@ video{
 </head>
 <body>
   <div id="video">
-    <video id="bgvid" playsinline="1" autopause="0" loop="1" autoplay="1" muted="1" class="" data-desktop-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-desktop.mp4" 
-      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4">
+    <video id="bgvid" playsinline="1" autopause="0" loop="1" autoplay="1" muted="1">
+      <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4" type="video/mp4">
     </video>
   </div>
 
   <div class="content">
     <img src="https://storageapi.fleek.co/jethrodw-team-bucket/logo.svg" alt="drivrs.eth"/>
   </div>
-
-  <audio autoplay loop>
-    <source src="drivrs.mp3" type="audio/mpeg">
-    Your browser does not support HTML5 audio.
-  </audio>
 <script>
-//get all vids
-var video =  document.querySelectorAll('video')
+// //get all vids
+// var video =  document.querySelectorAll('video')
 
-//add source to video tag
-function addSourceToVideo(element, src) {
-    var source = document.createElement('source');
-    source.src = src;
-    source.type = 'video/mp4';
-	console.log(src);
-    element.appendChild(source);
+// //add source to video tag
+// function addSourceToVideo(element, src) {
+//     var source = document.createElement('source');
+//     source.src = src;
+//     source.type = 'video/mp4';
+// 	console.log(src);
+//     element.appendChild(source);
 	
-}
+// }
 
-//determine screen size and select mobile or desktop vid
-function whichSizeVideo(element, src) {
-	var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
-	if (windowWidth > 1200 ) {
-		addSourceToVideo( element, src.dataset.desktopVid);
-	} else {
-		addSourceToVideo(element, src.dataset.mobileVid);
-	}
-}
+// //determine screen size and select mobile or desktop vid
+// function whichSizeVideo(element, src) {
+// 	var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+// 	if (windowWidth > 1200 ) {
+// 		addSourceToVideo( element, src.dataset.desktopVid);
+// 	} else {
+// 		addSourceToVideo(element, src.dataset.mobileVid);
+// 	}
+// }
 
-//init only if page has videos
-function videoSize() {
-	if (video !== undefined) {
-	video.forEach(function(element, index) {
-			whichSizeVideo(  
-				element, //element
-				element  //src locations
-			);	
-		});
-	}
-}
-videoSize();
+// //init only if page has videos
+// function videoSize() {
+// 	if (video !== undefined) {
+// 	video.forEach(function(element, index) {
+// 			whichSizeVideo(  
+// 				element, //element
+// 				element  //src locations
+// 			);	
+// 		});
+// 	}
+// }
+// videoSize();
 </script>
 </body>
 </html>
