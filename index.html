@@ -46,7 +46,7 @@ video{
     <video 
     id="bgvid" autoplay loop muted controls playsinline
       data-desktop-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-desktop.mp4" 
-      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.webm">
+      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4">
     </video>
 
   <div class="content">
@@ -64,13 +64,13 @@ function addSourceToVideo(element, src) {
 	console.log(src);
     element.appendChild(source);
 }
-function addWebmToVideo(element, src){
-  var source = document.createElement('source');
-  source.type = 'video/webm';
-    source.src = src;
-	console.log(src);
-    element.appendChild(source);
-}
+// function addWebmToVideo(element, src){
+//   var source = document.createElement('source');
+//   source.type = 'video/webm';
+//     source.src = src;
+// 	console.log(src);
+//     element.appendChild(source);
+// }
 
 //determine screen size and select mobile or desktop vid
 function whichSizeVideo(element, src) {
@@ -78,7 +78,7 @@ function whichSizeVideo(element, src) {
 	if (windowWidth > 1200 ) {
 		addSourceToVideo( element, src.dataset.desktopVid);
 	} else {
-		addWebmToVideo(element, src.dataset.mobileVid);
+		addSourceToVideo(element, src.dataset.mobileVid);
 	}
 }
 
