@@ -68,7 +68,13 @@ function addSourceToVideo(element, src) {
     source.src = src;
 	console.log(src);
     element.appendChild(source);
-	
+}
+function addWebmToVideo(element, src){
+  var source = document.createElement('source');
+  source.type = 'video/webm';
+    source.src = src;
+	console.log(src);
+    element.appendChild(source);
 }
 
 //determine screen size and select mobile or desktop vid
@@ -77,7 +83,7 @@ function whichSizeVideo(element, src) {
 	if (windowWidth > 1200 ) {
 		addSourceToVideo( element, src.dataset.desktopVid);
 	} else {
-		addSourceToVideo(element, src.dataset.mobileVid);
+		addWebmToVideo(element, src.dataset.mobileVid);
 	}
 }
 
