@@ -12,8 +12,10 @@ body {
   font-family: Arial;
   font-size: 17px;
 }
-
-#myVideo {
+video{
+  max-width: 100%;
+}
+#bgvideo {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -22,14 +24,6 @@ body {
   min-height: 100%;
 }
 
-.content {
-  position: fixed;
-  top: 0;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* color: #f1f1f1; */
-  width: 15%;
-  padding: 20px;
-}
 .content {
   position: fixed;
   top: 0;
@@ -72,30 +66,56 @@ body {
 </style>
 </head>
 <body>
-  <video autoplay loop muted
-   id="myVideo">
-    <source src="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+  <div id="video">
+    <video id="bgvid" preload="auto" autoplay="" loop="" muted="" playsinline="" class="" data-desktop-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-desktop.mp4" 
+      data-mobile-vid="https://storageapi.fleek.co/jethrodw-team-bucket/drivrs-mobile.mp4">
+    </video>
+  </div>
+
+  <div class="content">
+    <img src="https://storageapi.fleek.co/jethrodw-team-bucket/logo.svg" alt="drivrs.eth"/>
+  </div>
+
   <audio autoplay loop>
     <source src="drivrs.mp3" type="audio/mpeg">
     Your browser does not support HTML5 audio.
   </audio>
-<div class="content">
-  <img src="https://storageapi.fleek.co/jethrodw-team-bucket/logo.svg" alt="drivrs.eth"/>
-</div>
-
 <script>
-// var video = document.getElementById("myVideo");
+//get all vids
+var video =  document.querySelectorAll('video')
 
-// window.addEventListener('load', function(){
-//     var newVideo = document.getElementById('myVideo');
-//     newVideo.addEventListener('ended', function() {
-//         this.currentTime = 0;
-//         this.play();
-//     }, false);
-//     newVideo.play();
-// });
+//add source to video tag
+function addSourceToVideo(element, src) {
+    var source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+	console.log(src);
+    element.appendChild(source);
+	
+}
+
+//determine screen size and select mobile or desktop vid
+function whichSizeVideo(element, src) {
+	var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+	if (windowWidth > 1200 ) {
+		addSourceToVideo( element, src.dataset.desktopVid);
+	} else {
+		addSourceToVideo(element, src.dataset.mobileVid);
+	}
+}
+
+//init only if page has videos
+function videoSize() {
+	if (video !== undefined) {
+	video.forEach(function(element, index) {
+			whichSizeVideo(  
+				element, //element
+				element  //src locations
+			);	
+		});
+	}
+}
+videoSize();
 </script>
 </body>
 </html>
